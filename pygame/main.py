@@ -25,6 +25,31 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect() #定位圖片
         self.rect.x = 200
         self.rect.y = 200
+    def update(self):
+
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed[pygame.K_w]:
+            self.rect.y -=5
+        if key_pressed[pygame.K_s]:
+            self.rect.y +=5
+        if key_pressed[pygame.K_a]:
+            self.rect.x -=5
+        if key_pressed[pygame.K_d]:
+            self.rect.x +=5
+
+        if self.rect.left > h:
+            self.rect.right = 0
+        elif self.rect.right < 0:
+            self.rect.left = h
+
+        if self.rect.top > w:
+            self.rect.bottom = 0
+        elif self.rect.bottom < 0:
+            self.rect.top = w
+
+        
+
+
 
 all_sprites = pygame.sprite.Group() #物件的群組
 player = Player()
@@ -40,6 +65,7 @@ while running:
             running = False
 
     #更新
+    all_sprites.update()
 
     #畫面
     screen.fill(bg) #視窗填滿顏色RGB
