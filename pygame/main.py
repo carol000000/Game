@@ -1,4 +1,5 @@
 import pygame
+import os
 
 #設定
 FPS = 60
@@ -15,6 +16,9 @@ screen = pygame.display.set_mode((h,w)) #視窗
 pygame.display.set_caption(gamename)
 clock = pygame.time.Clock()
 running = True
+
+#圖片
+pygame.image.load(os.path.join("img","player01.png"))
 
 
 class Player(pygame.sprite.Sprite):
