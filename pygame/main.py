@@ -93,8 +93,8 @@ class  Bullet(pygame.sprite.Sprite):
             self.image = pygame.Surface((10,10))
             self.image.fill((255,255,255))
             self.rect = self.image.get_rect() #定位圖片
-            self.rect.x = random.randint(0,1500)
-            self.rect.y = random.randint(0,800)
+
+
 
 
             
